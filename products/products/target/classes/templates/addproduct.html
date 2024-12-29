@@ -1,0 +1,50 @@
+<!-- addProduct.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Product</title>
+    <style>
+        .form-container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h2>Add New Product</h2>
+    <form th:action="@{/addproduct}" th:object="${product}" method="post">
+        <div class="form-group">
+            <label>Name:</label>
+            <input type="text" th:field="*{name}" required/>
+        </div>
+        <div class="form-group">
+            <label>Price:</label>
+            <input type="number" step="0.01" th:field="*{price}" required/>
+        </div>
+        <div class="form-group">
+            <label>Category:</label>
+            <input type="text" th:field="*{category}" required/>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <a href="/"><button style="margin-top: 10px;">Back to Home</button></a>
+</div>
+</body>
+</html>
